@@ -1,0 +1,24 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. Q6-COUNT.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 WS-N PIC 999.
+       01 WS-I PIC 999.
+       01 WS-AMOUNT PIC 9(8).
+       01 WS-THRESHOLD PIC 9(8).
+       01 WS-COUNT PIC 999 VALUE 0.
+       PROCEDURE DIVISION.
+           DISPLAY "ENTER NUMBER OF DEPOSITS:".
+           ACCEPT WS-N.
+           DISPLAY "ENTER THRESHOLD:".
+           ACCEPT WS-THRESHOLD.
+           PERFORM VARYING WS-I FROM 1 BY 1 UNTIL WS-I > WS-N
+               DISPLAY "ENTER DEPOSIT:"
+               ACCEPT WS-AMOUNT
+               IF WS-AMOUNT > WS-THRESHOLD
+                   ADD 1 TO WS-COUNT
+               END-IF
+           END-PERFORM.
+           DISPLAY "COUNT: " WS-COUNT.
+           STOP RUN.
+       
